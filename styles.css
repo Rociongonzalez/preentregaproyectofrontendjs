@@ -1,0 +1,277 @@
+/* --- Estilos Globales y Google Fonts --- */
+
+/* Req 3: Importar Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /* Req 3: Aplicar Google Font */
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1, h2, h3 {
+    margin-bottom: 1rem;
+}
+
+section {
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Req 3: Estilos Básicos (Header, Nav, Footer) --- */
+
+header {
+    /* Req 3: Propiedad de background (degradado) */
+    background: linear-gradient(90deg, #005aa7, #fffde4);
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    color: #333; /* Color de texto oscuro para que contraste con el fondo claro */
+    margin: 0;
+}
+
+nav ul {
+    /* Req 5: Lista de navegación */
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 0;
+    background-color: rgba(51, 51, 51, 0.8);
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #00aaff;
+}
+
+footer {
+    /* Req 3: Propiedad de background (color) */
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+}
+
+/* --- Req 4: Sección Productos (FLEXBOX) --- */
+
+#productos h2 {
+    text-align: center;
+}
+
+.productos-container {
+    display: flex;
+    flex-wrap: wrap; /* Clave para el responsive */
+    justify-content: center;
+    gap: 1.5rem; /* Espacio entre cards */
+}
+
+.producto-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 1rem;
+    
+    /* Ancho base de las cards */
+    flex-basis: 300px;
+    flex-grow: 1;
+    max-width: 350px;
+    
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.producto-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.producto-card h3 {
+    color: #005aa7;
+}
+
+.producto-card p {
+    flex-grow: 1; /* Empuja el botón al fondo */
+    margin-bottom: 1rem;
+}
+
+.producto-card button {
+    background: #005aa7;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.producto-card button:hover {
+    background: #003e7a;
+}
+
+/* --- Req 4: Sección Reseñas (GRID) --- */
+
+#reseñas {
+    background-color: #e9ecef;
+}
+
+#reseñas h2 {
+    text-align: center;
+}
+
+.reseñas-container {
+    display: grid;
+    /* Grid responsivo:
+      Crea columnas que se ajustan automáticamente.
+      Cada columna tendrá un mínimo de 300px.
+      Si hay espacio, crecerán para ocupar el espacio (1fr).
+    */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.reseña-item {
+    background: #fff;
+    border-left: 5px solid #005aa7;
+    padding: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.reseña-item p {
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.reseña-item cite {
+    font-weight: bold;
+    color: #333;
+}
+
+
+/* --- Req 2: Formulario de Contacto --- */
+
+#contacto h2 {
+    text-align: center;
+}
+
+.contacto-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que se apilen en móviles */
+    gap: 2rem;
+}
+
+.contact-form, .map-container {
+    flex: 1;
+    min-width: 300px; /* Ancho mínimo antes de apilarse */
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.contact-form button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: #218838;
+}
+
+.map-container iframe {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* --- Req 4: Diseño Responsivo (Media Queries) --- */
+
+@media (max-width: 768px) {
+    
+    /* Hacemos que la navegación sea vertical en móviles */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+    
+    /* Req 4: Media Query aplicada a la sección Contacto */
+    #contacto {
+        padding: 1.5rem 0.5rem; /* Menos padding en móviles */
+    }
+
+    .contacto-container {
+        flex-direction: column; /* Apila el formulario y el mapa */
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+}
